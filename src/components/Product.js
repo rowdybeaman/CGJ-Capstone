@@ -12,6 +12,7 @@ function Product() {
   useEffect(() => {
     axios.get(`/api/products/${id}`)
       .then(response => {
+        console.log(response.data)
         setProduct(response.data.product);
         setRelatedProducts(response.data.relatedProducts);
       })

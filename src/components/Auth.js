@@ -13,7 +13,7 @@ const Auth = () => {
     let body = { username, password };
       console.log('test')
     axios
-      .post(register ? "/register" : "/login", body)
+      .post(register ?  "http://localhost:4005/register" : "http://localhost:4005/login", body)
       .then((res) => {
         dispatch({ type: "LOGIN", payload: res.data });
       })
@@ -31,7 +31,7 @@ const Auth = () => {
       <h1>Welcome!</h1>
       <form className="form auth-form" onSubmit={submitHandler}>
         <input className="form-input" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-        <input className="form-input" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+        <input className="form-input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         <button className="form-btn">{register ? "Sign Up" : "Login"}</button>
       </form>
       <button className="form-btn" onClick={() => setRegister(!register)}>

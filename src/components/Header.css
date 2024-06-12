@@ -1,23 +1,70 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: black;
-    color: white;
-  }
-  
-  .logo {
-    height: 50px;
-  }
-  
-  .nav a {
-    margin-left: 1em;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .nav i {
-    font-size: 1.5em;
-  }
-  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7em; 
+  background-color: black;
+  color: white;
+}
+
+.logo {
+  height: 100px; 
+  width: 100px;
+  margin-right: 0.7em; 
+}
+
+.header-content h1 {
+  font-size: 1.4em; 
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.7em; 
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 0.7em; 
+}
+
+.profile-icon, .cart-icon {
+  color: white;
+  font-size: 1.05em; 
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 0.35em; 
+  margin-top: 0.7em; 
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.7em; 
+  display: flex;
+  align-items: center;
+}
+
+.main-nav .nav-icon {
+  margin-right: 0.35em; 
+  font-size: 0.84em; 
+}
+

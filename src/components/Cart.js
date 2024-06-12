@@ -8,8 +8,14 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    axios.get('/api/cart')
+    const token = localStorage.getItem('token'); 
+    axios.get('http://localhost:4005/api/cart', {
+      headers: {
+        'Authorization': token,
+      },
+    })
       .then(response => {
+        console.log(response.data)
         setCartItems(response.data.items);
         setTotalPrice(response.data.totalPrice);
       })
@@ -17,13 +23,12 @@ function Cart() {
   }, []);
 
   const updateCart = (itemId, quantity) => {
-    // logic to update cart
   };
 
   return (
     <div className="cart">
       {cartItems.map(item => (
-        <ProductCard key={item.id} product={item} />
+        <ProductCard key={item.id} product={item.product} />
       ))}
       <div className="total-price">Total: ${totalPrice}</div>
       <button className="checkout-button" onClick={() => window.location.href = '/checkout'}>Checkout</button>

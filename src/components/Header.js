@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../store/authContext.js';
+import { AuthContext } from '../store/authContext';
 import logo from './assets/CGJlogo.svg';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faShoppingCart, faHome, faBoxOpen, faLightbulb, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   const { state } = useContext(AuthContext);
@@ -15,10 +17,28 @@ function Header() {
       </div>
       <nav className="nav">
         <Link to="/auth">
-          <i className="profile-icon"></i>
+          <FontAwesomeIcon icon={faUser} className="profile-icon" />
         </Link>
         <Link to="/cart">
-          <i className="cart-icon"></i>
+          <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+        </Link>
+      </nav>
+      <nav className="main-nav">
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome} className="nav-icon" />
+          <span>Home</span>
+        </Link>
+        <Link to="/products">
+          <FontAwesomeIcon icon={faBoxOpen} className="nav-icon" />
+          <span>Products</span>
+        </Link>
+        <Link to="/submit-idea">
+          <FontAwesomeIcon icon={faLightbulb} className="nav-icon" />
+          <span>Submit Idea</span>
+        </Link>
+        <Link to="/about-us">
+          <FontAwesomeIcon icon={faInfoCircle} className="nav-icon" />
+          <span>About Us</span>
         </Link>
       </nav>
     </header>
