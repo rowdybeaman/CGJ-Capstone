@@ -4,10 +4,15 @@ import { AuthContext } from '../store/authContext';
 import logo from './assets/CGJlogo.svg';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faShoppingCart, faHome, faBoxOpen, faLightbulb, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart, faHome, faBoxOpen, faLightbulb, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
-  const { state } = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch({ type: 'LOGOUT' });
+  };
 
   return (
     <header className="header">
@@ -22,6 +27,11 @@ function Header() {
         <Link to="/cart">
           <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
         </Link>
+        {state.token && (
+          <button className="logout-button" onClick={handleLogout}>
+            <FontAwesomeIcon icon={faSignOutAlt} className="logout-icon" /> Logout
+          </button>
+        )}
       </nav>
       <nav className="main-nav">
         <Link to="/">
@@ -35,10 +45,6 @@ function Header() {
         <Link to="/submit-idea">
           <FontAwesomeIcon icon={faLightbulb} className="nav-icon" />
           <span>Submit Idea</span>
-        </Link>
-        <Link to="/about-us">
-          <FontAwesomeIcon icon={faInfoCircle} className="nav-icon" />
-          <span>About Us</span>
         </Link>
       </nav>
     </header>

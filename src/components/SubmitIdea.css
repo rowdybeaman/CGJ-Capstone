@@ -1,0 +1,103 @@
+.submit-idea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submit-idea {
+    background-color: black;
+    color: white;
+    padding: 2em;
+    border-radius: 10px;
+    max-width: 1000px;
+    width: 90%;
+    margin: 2em 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .submit-idea h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .submit-idea-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .email-input, .file-input, .description-input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .description-input {
+    height: 150px;
+    resize: none;
+  }
+  
+  .char-counter {
+    text-align: right;
+    font-size: 0.9em;
+    color: #ccc;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+  }
+  
+  .email-error {
+    color: red;
+    margin-top: 0.5em;
+  }
+  
+  .separator {
+    border: 1px solid white;
+    width: 80%;
+    margin: 2em 0;
+  }
+  
+  .gallery-title {
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  

@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;
   position: relative;
+}
+
+.collage-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .motto {
@@ -14,13 +19,14 @@
   z-index: 1;
   text-align: center;
   color: white;
-  font-size: 3em;
+  font-size: 2.5vw; /* Smaller responsive font size */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .collage {
-  width: 100%;
+  width: 100vw; /* Make collage full width of viewport */
+  overflow: hidden; /* Hide any overflow */
   margin: 0; /* Remove top margin */
   padding: 0; /* Remove padding */
   text-align: center;
@@ -30,8 +36,7 @@
 .collage img {
   width: 100%;
   height: auto;
-  border: 2px solid white;
-  box-sizing: border-box;
+  display: block; /* Ensure the image behaves as a block element */
 }
 
 .preview {
@@ -127,4 +132,77 @@
 .about-us {
   max-width: 800px;
   text-align: left;
+}
+
+.social-updates {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em 0;
+}
+
+.social-media, .updates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+.social-media {
+  flex: 1;
+  margin-right: 1em;
+}
+
+.updates {
+  flex: 2;
+  margin-left: 1em;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.social-icon {
+  font-size: 2em;
+  color: white;
+}
+
+.social-icon:hover {
+  color: #ddd;
+}
+
+.email-input {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+
+.subscribe-button {
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.subscribe-button:hover {
+  transform: scale(1.05);
+  background-color: #0056b3;
+}
+
+.email-error {
+  color: red;
+  margin-top: 0.5em;
 }

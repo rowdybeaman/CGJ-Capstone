@@ -1,61 +1,78 @@
-.cart {
-    padding: 20px;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
-  
-  .cart-item img {
-    max-width: 100px;
-    margin-right: 20px;
-  }
-  
-  .cart-item-details {
-    flex: 1;
-  }
-  
-  .cart-item-details h3 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  
-  .cart-item-details p {
-    margin: 5px 0;
-    color: #666;
-  }
-  
-  .cart-item-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cart-item-actions button {
-    margin-left: 10px;
-  }
-  
-  .total-price {
-    margin-top: 20px;
-    font-size: 1.5em;
-    text-align: right;
-  }
-  
-  .checkout-button {
-    display: block;
-    margin: 20px 0;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .checkout-button:hover {
-    background-color: #218838;
-  }
-  
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.cart-box {
+  background-color: black;
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.total-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  margin-right: 20px;
+}
+
+.checkout-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.checkout-button:hover {
+  background-color: #218838;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.cart-item-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.remove-button:hover {
+  text-decoration: line-through;
+  background-color: darkred;
+}
+
+.remove-button:hover {
+  transform: scale(1.05);
+}

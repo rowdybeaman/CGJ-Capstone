@@ -3,6 +3,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  background: url('./components/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 header {
@@ -64,9 +66,8 @@ footer {
   color: white;
   padding: 1em;
   text-align: center;
-  left: 0;
-  bottom: 0;
   width: 100%;
+  margin-top: auto;
 }
 
 .footer-links a {
@@ -80,9 +81,6 @@ footer {
 }
 
 .footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
   background-color: gray;
   text-align: center;
 }

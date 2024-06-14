@@ -1,70 +1,76 @@
 .header {
-  position: relative;
+  background-color: black;
+  color: white;
+  padding: 1em 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.7em; 
-  background-color: black;
-  color: white;
-}
-
-.logo {
-  height: 100px; 
-  width: 100px;
-  margin-right: 0.7em; 
-}
-
-.header-content h1 {
-  font-size: 1.4em; 
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.logo {
+  width: 100px; /* Adjust this value as needed */
+  height: auto;
+}
+
+.site-title {
+  font-size: 2.5em; /* Increase the font size */
+  margin: 0;
 }
 
 .nav {
-  position: absolute;
-  top: 0;
-  right: 0;
   display: flex;
-  align-items: center;
-  padding: 0.7em; 
-}
-
-.nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 0.7em; 
+  gap: 1em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }
 
 .profile-icon, .cart-icon {
-  color: white;
-  font-size: 1.05em; 
+  font-size: 1.5em;
 }
 
 .main-nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: black;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 0.35em; 
-  margin-top: 0.7em; 
+  gap: 2em;
+  margin-top: 1em;
 }
 
 .main-nav a {
   color: white;
   text-decoration: none;
-  margin: 0 0.7em; 
+  font-size: 1.2em;
   display: flex;
   align-items: center;
 }
 
-.main-nav .nav-icon {
-  margin-right: 0.35em; 
-  font-size: 0.84em; 
+.nav-icon {
+  margin-right: 0.5em;
 }
 
+.logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+  font-size: 1em;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}
+
+.logout-icon {
+  margin-right: 0.5em;
+}

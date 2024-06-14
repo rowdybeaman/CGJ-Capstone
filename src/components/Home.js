@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 import collage from './assets/collage.png';
 import d20 from './assets/d20.png';
 import majora from './assets/majora.png';
 import mimic from './assets/mimic.png';
-import { AuthContext } from '../store/authContext'; 
-import { useContext } from 'react';
+import { AuthContext } from '../store/authContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const navigate = useNavigate();
-  // const {user} = useContext(AuthContext);
-  //   console.log(user)
   const userId = localStorage.getItem('userId');
-    console.log(userId) 
+  console.log(userId);
+
   const handlePurchase = async (productId, sizeId) => {
-    const isAuthenticated = userId ? true:false; 
-        console.log(userId ? true:false)
+    const isAuthenticated = userId ? true : false;
+    console.log(isAuthenticated);
     if (!isAuthenticated) {
       navigate('/login');
     } else {
       try {
-        const token = localStorage.getItem('token'); 
+        const token = localStorage.getItem('token');
         const response = await fetch('http://localhost:4005/api/cart', {
           method: 'POST',
           headers: {
@@ -37,20 +38,39 @@ function Home() {
         if (!response.ok) {
           throw new Error('Failed to add item to cart');
         }
-          alert('success')
+        alert('success');
       } catch (error) {
         console.error('Error:', error);
       }
     }
   };
 
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubscribe = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError('Improper email');
+    } else {
+      setEmailError('');
+      window.location.href = `mailto:customgaugejewelry.com?subject=Subscribe&body=Please subscribe me to your updates. Email: ${email}`;
+    }
+  };
+
   return (
     <div className="home">
-      <div className="motto">
-        <h2>Stretch Your Imagination</h2>
-      </div>
-      <div className="collage">
-        <img src={collage} alt="Collage" />
+      <div className="collage-container">
+        <div className="motto">
+          <h2>Stretch Your Imagination</h2>
+        </div>
+        <div className="collage">
+          <img src={collage} alt="Collage" />
+        </div>
       </div>
       <div className="preview">
         <h2>Preview our Products</h2>
@@ -98,7 +118,53 @@ function Home() {
       </div>
       <div className="about-us">
         <h2>About Us</h2>
-        <p>Custom Gauge Jewelry is dedicated to providing unique and customized jewelry pieces...</p>
+        <p>
+          Welcome to Custom Gauge Jewelry, your premier destination for unique and customized jewelry pieces. 
+          Our mission is to offer a diverse range of high-quality gauges that cater to all styles and preferences. 
+          We believe that jewelry is a powerful form of self-expression, and we are dedicated to helping you find 
+          the perfect piece that resonates with your individuality.
+        </p>
+        <p>
+          Our collection features a variety of designs, from classic to contemporary, all crafted with the utmost 
+          attention to detail and quality. We pride ourselves on our customer-centric approach, ensuring that every 
+          piece of jewelry is not only beautiful but also comfortable and durable.
+        </p>
+        <p>
+          At Custom Gauge Jewelry, we are committed to sustainability and ethical practices. We source our materials 
+          responsibly and work with artisans who share our values. Our goal is to create jewelry that you can feel 
+          good about wearing, knowing that it was made with care and integrity.
+        </p>
+        <p>
+          Thank you for choosing Custom Gauge Jewelry. We are honored to be a part of your journey in finding the perfect 
+          piece of jewelry that speaks to your soul. If you have any questions or need assistance, our friendly customer 
+          service team is always here to help.
+        </p>
+        <p>
+          Stretch your imagination with Custom Gauge Jewelry.
+        </p>
+      </div>
+      <div className="social-updates">
+        <div className="social-media box">
+          <h2>Follow Us</h2>
+          <div className="social-icons">
+            <FontAwesomeIcon icon={faFacebook} className="social-icon" />
+            <FontAwesomeIcon icon={faTwitter} className="social-icon" />
+            <FontAwesomeIcon icon={faInstagram} className="social-icon" />
+            <FontAwesomeIcon icon={faPinterest} className="social-icon" />
+          </div>
+        </div>
+        <div className="updates box">
+          <h2>Receive Updates</h2>
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Enter your email"
+            className="email-input"
+          />
+          <button onClick={handleSubscribe} className="subscribe-button">Subscribe</button>
+          {emailError && <p className="email-error">{emailError}</p>}
+        </div>
       </div>
     </div>
   );

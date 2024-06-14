@@ -1,39 +1,34 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Product from './components/Product';
+import SubmitIdea from './components/SubmitIdea';
+import Auth from './components/Auth';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import Auth from './components/Auth';
+import Header from './components/Header';
+import { AuthContextProvider } from './store/authContext';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/auth" element={<Auth />} />
-        </Routes>
-      </main>
-      <footer>
-        <div className="footer-links">
-          <a href="#">Home</a>
-          <a href="#">Products</a>
-          <a href="#">Submit Idea</a>
-          <a href="#">About Us</a>
+    <AuthContextProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <main className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Product />} />
+              <Route path="/submit-idea" element={<SubmitIdea />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+            </Routes>
+          </main>
         </div>
-        <div className="footer-bottom">
-          <a href="#">Back to Top</a>
-          <p>&copy; 2024 Custom Gauge Jewelry. All rights reserved.</p>
-        </div>
-      </footer>
-    </Router>
+      </Router>
+    </AuthContextProvider>
   );
 }
 
